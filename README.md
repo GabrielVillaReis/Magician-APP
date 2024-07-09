@@ -70,8 +70,8 @@ $mvn javafx:run
 ```
 ## Rodar sem Maven
 ### Pré-requisitos
-1. Java: Versão 22
-2. JavaFX: Versão 22-ea+11
+
+1. JavaFX: Versão 22-ea+11
 
 ### Adicionando JavaFX
 JavaFX é necessário para executar este projeto, pois ele utiliza componentes gráficos para a interface do usuário. Siga os passos abaixo para configurar o JavaFX em seu ambiente de desenvolvimento:

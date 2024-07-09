@@ -12,10 +12,19 @@ public class Busca {
     ArrayList<String> resultado = new ArrayList<>();
     try (BufferedReader reader = new BufferedReader(new FileReader(PATH_USUARIOS))) {
       String linha;
-      while ((linha = reader.readLine()) != null) {
-        String[] campos = linha.split(",");
-        if (campos[0].equals(email) || email.equals("BUSCACOMPLETA")) {
-          resultado.addAll(Arrays.asList(campos));
+      if(email.equals("BUSCACOMPLETA")){
+        while ((linha = reader.readLine()) != null) {
+          String[] campos = linha.split(",");
+            resultado.addAll(Arrays.asList(campos));
+        }
+      }
+      else {
+        while ((linha = reader.readLine()) != null) {
+          String[] campos = linha.split(",");
+          if (campos[0].equals(email)) {
+            resultado.addAll(Arrays.asList(campos));
+            return resultado;
+          }
         }
       }
       if(resultado.size() > 0) {

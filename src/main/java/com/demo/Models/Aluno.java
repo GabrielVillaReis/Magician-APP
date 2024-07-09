@@ -1,7 +1,6 @@
 package com.demo.Models;
 
 public class Aluno {
-  // melhorar esse metodo p/ fazer so uma chamada da funcao aluno
   private String nivel;
   private String email;
   private String senha;

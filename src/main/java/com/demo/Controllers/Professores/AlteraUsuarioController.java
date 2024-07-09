@@ -89,7 +89,6 @@ public class AlteraUsuarioController {
         }
       }
       usuarioscsv.setText(buscompleta.toString());
-      System.out.println(usuario);
     }
     else {
       usuario = Busca.usuario(emailText.getText().toLowerCase().trim());

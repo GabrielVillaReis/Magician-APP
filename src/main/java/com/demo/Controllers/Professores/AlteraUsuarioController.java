@@ -7,6 +7,7 @@ import com.demo.Models.Performance;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -25,6 +26,7 @@ public class AlteraUsuarioController {
   public TextField emailText;
   public TextField nomeText;
   public TextField senhaText;
+  public TextArea usuarioscsv;
   public Text mensagemresposta;
   public Label nivelText;
   public Label performanceText;
@@ -40,6 +42,8 @@ public class AlteraUsuarioController {
 
   public void initialize(String email) {
     admemail = email;
+    usuarioscsv.setVisible(false);
+    usuarioscsv.setEditable(false);
     subirNivel.setVisible(false);
     descerNivel.setVisible(false);
     alterar.setVisible(false);
@@ -65,23 +69,51 @@ public class AlteraUsuarioController {
   }
 
   private void buscarUsuario() {
-    usuario = Busca.usuario(emailText.getText().toLowerCase().trim());
-    if (usuario == null) {
-      mensagemresposta.setFill(Color.RED);
-      mensagemresposta.setVisible(true);
-      mensagemresposta.setText("Usuário não encontrado");
-      limparCampos();
-    } else {
-      mensagemresposta.setVisible(false);
-      uemail = emailText.getText().toLowerCase().trim();
-      aperformance = Busca.performance(uemail);
-      if (usuario.getLast().equals("a")) {
-        mostraAluno();
-      } else {
-        mostraProfessor();
+    if (emailText.getText().isEmpty()){
+      usuarioscsv.setVisible(true);
+      usuario = Busca.usuario("BUSCACOMPLETA");
+      StringBuilder buscompleta = new StringBuilder();
+      for (String item : usuario){
+        if(item.equals("p") || item.equals("a")){
+          if (item.equals("p")) buscompleta.append(", Professor");
+          else buscompleta.append(", Aluno");
+          buscompleta.append("\n");
+        }
+        else if (item.equals("1") || item.equals("2") || item.equals("3") || item.equals("4")){
+          buscompleta.append(", " + Performance.stringNivel(item));
+        }
+        else {
+          if(buscompleta.length() > 0 && buscompleta.charAt(buscompleta.length()-1) != '\n')
+          buscompleta.append(", ");
+          buscompleta.append(item);
+        }
       }
-      nomeText.setText(usuario.get(2));
-      senhaText.setText(usuario.get(1));
+      usuarioscsv.setText(buscompleta.toString());
+      System.out.println(usuario);
+    }
+    else {
+      usuario = Busca.usuario(emailText.getText().toLowerCase().trim());
+      try{
+        if (usuario == null) {
+          throw new Exception();
+        } else {
+          mensagemresposta.setVisible(false);
+          uemail = emailText.getText().toLowerCase().trim();
+          aperformance = Busca.performance(uemail);
+          if (usuario.getLast().equals("a")) {
+            mostraAluno();
+          } else {
+            mostraProfessor();
+          }
+          nomeText.setText(usuario.get(2));
+          senhaText.setText(usuario.get(1));
+        }
+      }catch (Exception e){
+        mensagemresposta.setFill(Color.RED);
+        mensagemresposta.setVisible(true);
+        mensagemresposta.setText("Usuário não encontrado");
+        limparCampos();
+      }
     }
   }
 
@@ -137,6 +169,7 @@ public class AlteraUsuarioController {
 
   private void mostraAluno() {
     anivel = usuario.get(3);
+    usuarioscsv.setVisible(false);
     nomeText.setVisible(true);
     senhaText.setVisible(true);
     performanceText.setVisible(true);
@@ -171,6 +204,7 @@ public class AlteraUsuarioController {
 
   private void mostraProfessor() {
     anivel = "";
+    usuarioscsv.setVisible(false);
     nomeText.setVisible(true);
     senhaText.setVisible(true);
     alterar.setVisible(true);
@@ -180,7 +214,7 @@ public class AlteraUsuarioController {
     nivelText.setVisible(false);
     performanceTitle.setVisible(false);
     nivelTitle.setVisible(false);
-    if (emailText.getText().equals(admemail))
+    if (emailText.getText().equals(admemail) || emailText.getText().equals("admin@com"))
       deletar.setVisible(false);
     else deletar.setVisible(true);
   }

@@ -2,76 +2,61 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="500.0" maxWidth="900.0" minHeight="500.0" minWidth="900.0" prefHeight="500.0" prefWidth="900.0"
-            style="-fx-background-color: #E9DDD4;" xmlns="http://javafx.com/javafx/22"
-            xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="500.0" maxWidth="900.0" minHeight="500.0" minWidth="900.0" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #E9DDD4;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <Button fx:id="voltar" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" prefWidth="100.0"
-            styleClass="button-sm" stylesheets="@../Style/style.css" text="Voltar" textFill="WHITE"/>
-    <Text layoutX="334.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alterar Usuário"
-          textAlignment="CENTER">
+    <Button fx:id="voltar" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" prefWidth="100.0" styleClass="button-sm" stylesheets="@../Style/style.css" text="Voltar" textFill="WHITE" />
+    <Text layoutX="334.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alterar Usuário" textAlignment="CENTER">
       <font>
-        <Font name="Wingdings" size="40.0"/>
+        <Font name="Wingdings" size="40.0" />
       </font>
     </Text>
-    <TextField fx:id="emailText" layoutX="304.0" layoutY="103.0" prefHeight="29.0" prefWidth="313.0"
-               promptText="Email"/>
-    <TextField fx:id="nomeText" layoutX="304.0" layoutY="195.0" prefHeight="29.0" prefWidth="313.0" promptText="Nome"/>
+    <TextField fx:id="emailText" layoutX="304.0" layoutY="103.0" prefHeight="29.0" prefWidth="313.0" promptText="Email" />
+    <TextField fx:id="nomeText" layoutX="304.0" layoutY="195.0" prefHeight="29.0" prefWidth="313.0" promptText="Nome" />
     <Label fx:id="nivelTitle" layoutX="303.0" layoutY="308.0" text="Nível:">
       <font>
-        <Font name="Arial Black" size="18.0"/>
+        <Font name="Arial Black" size="18.0" />
       </font>
     </Label>
     <Label fx:id="performanceTitle" layoutX="304.0" layoutY="352.0" text="Performance:">
       <font>
-        <Font name="Arial Black" size="18.0"/>
+        <Font name="Arial Black" size="18.0" />
       </font>
     </Label>
-    <Label fx:id="nivelText" alignment="TOP_CENTER" layoutX="370.0" layoutY="311.0" prefHeight="68.0" prefWidth="100.0"
-           text="iniciante">
+    <Label fx:id="nivelText" alignment="TOP_CENTER" layoutX="370.0" layoutY="311.0" prefHeight="68.0" prefWidth="100.0" text="iniciante">
       <font>
-        <Font name="Arial" size="16.0"/>
+        <Font name="Arial" size="16.0" />
       </font>
     </Label>
-    <Label fx:id="performanceText" alignment="TOP_CENTER" layoutX="450.0" layoutY="356.0" prefHeight="143.0"
-           prefWidth="241.0" text="c / t (p%)" textAlignment="CENTER">
+    <Label fx:id="performanceText" alignment="TOP_CENTER" layoutX="450.0" layoutY="356.0" prefHeight="143.0" prefWidth="241.0" text="c / t (p%)" textAlignment="CENTER">
       <font>
-        <Font name="Arial" size="16.0"/>
+        <Font name="Arial" size="16.0" />
       </font>
     </Label>
-    <Text fx:id="mensagemresposta" fill="RED" layoutX="24.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0"
-          textAlignment="CENTER" wrappingWidth="206.0">
+    <Text fx:id="mensagemresposta" fill="RED" layoutX="24.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="206.0">
       <font>
-        <Font size="20.0"/>
+        <Font size="20.0" />
       </font>
     </Text>
-    <Button fx:id="alterar" layoutX="642.0" layoutY="239.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0"
-            styleClass="button-sm" stylesheets="@../Style/style.css" text="Alterar" textFill="WHITE"/>
-    <Button fx:id="buscar" layoutX="411.0" layoutY="150.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0"
-            styleClass="button-sm" stylesheets="@../Style/style.css" text="Buscar" textFill="WHITE"/>
-    <Button fx:id="descerNivel" layoutX="300.0" layoutY="450.0" mnemonicParsing="false" prefHeight="26.0"
-            prefWidth="118.0" style="-fx-background-color: #900020; -fx-font-size: 13; -fx-border-radius: 3;"
-            text="Descer de nível ↓ " textFill="WHITE"/>
-    <TextField fx:id="senhaText" layoutX="304.0" layoutY="238.0" prefHeight="29.0" prefWidth="313.0"
-               promptText="Senha"/>
-    <Button fx:id="subirNivel" layoutX="499.0" layoutY="450.0" mnemonicParsing="false" prefHeight="26.0"
-            prefWidth="118.0" style="-fx-background-color: #900020; -fx-border-radius: 3; -fx-font-size: 13;"
-            text="Subir de Nível ↑" textFill="WHITE">
+    <Button fx:id="alterar" layoutX="642.0" layoutY="239.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" styleClass="button-sm" stylesheets="@../Style/style.css" text="Alterar" textFill="WHITE" />
+    <Button fx:id="buscar" layoutX="411.0" layoutY="150.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" styleClass="button-sm" stylesheets="@../Style/style.css" text="Buscar" textFill="WHITE" />
+    <Button fx:id="descerNivel" layoutX="300.0" layoutY="450.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #900020; -fx-font-size: 13; -fx-border-radius: 3;" text="Descer de nível ↓ " textFill="WHITE" />
+    <TextField fx:id="senhaText" layoutX="304.0" layoutY="238.0" prefHeight="29.0" prefWidth="313.0" promptText="Senha" />
+    <Button fx:id="subirNivel" layoutX="499.0" layoutY="450.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #900020; -fx-border-radius: 3; -fx-font-size: 13;" text="Subir de Nível ↑" textFill="WHITE">
       <font>
-        <Font size="13.0"/>
+        <Font size="13.0" />
       </font>
     </Button>
-    <Button fx:id="deletar" layoutX="767.0" layoutY="450.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0"
-            style="-fx-background-color: #900020; -fx-border-radius: 3; -fx-font-size: 13;" text="Deletar Usuário"
-            textFill="WHITE">
+    <Button fx:id="deletar" layoutX="767.0" layoutY="450.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #900020; -fx-border-radius: 3; -fx-font-size: 13;" text="Deletar Usuário" textFill="WHITE">
       <font>
-        <Font size="13.0"/>
+        <Font size="13.0" />
       </font>
     </Button>
+      <TextArea fx:id="usuarioscsv" layoutX="214.0" layoutY="195.0" prefHeight="238.0" prefWidth="531.0" />
   </children>
 </AnchorPane>

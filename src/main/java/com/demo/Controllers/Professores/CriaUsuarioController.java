@@ -95,6 +95,12 @@ public class CriaUsuarioController {
       return;
     }
 
+    if(uemail.getText().length() < 2 || senha.getText().length() < 2 || nome.getText().length() < 2){
+      mensagemresposta.setFill(Color.RED);
+      mensagemresposta.setText("O email senha e nome precisam ter ao menos 3 caracters");
+      return;
+    }
+
     if (Busca.usuario(uemail.getText()) != null) {
       mensagemresposta.setFill(Color.RED);
       mensagemresposta.setText("Usuário já cadastrado");

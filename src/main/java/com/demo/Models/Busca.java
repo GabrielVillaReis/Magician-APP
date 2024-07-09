@@ -14,10 +14,12 @@ public class Busca {
       String linha;
       while ((linha = reader.readLine()) != null) {
         String[] campos = linha.split(",");
-        if (campos.length >= 2 && campos[0].equals(email)) {
+        if (campos[0].equals(email) || email.equals("BUSCACOMPLETA")) {
           resultado.addAll(Arrays.asList(campos));
-          return resultado;
         }
+      }
+      if(resultado.size() > 0) {
+        return resultado;
       }
     } catch (IOException e) {
       e.printStackTrace();
@@ -82,7 +84,7 @@ public class Busca {
     try (FileWriter writer = new FileWriter(PATH_PERFORMANCE, true)) {
       String[] r = {email, "0", "0", "[]"};
       resultado.addAll(Arrays.asList(r));
-      writer.write(email + ",0,0,[]");
+      writer.write(email + ",0,0,[]\n");
       return resultado;
     } catch (IOException e) {
       e.printStackTrace();

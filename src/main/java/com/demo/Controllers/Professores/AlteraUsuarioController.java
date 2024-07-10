@@ -98,8 +98,8 @@ public class AlteraUsuarioController {
         } else {
           mensagemresposta.setVisible(false);
           uemail = emailText.getText().toLowerCase().trim();
-          aperformance = Busca.performance(uemail);
           if (usuario.getLast().equals("a")) {
+            aperformance = Busca.performance(uemail);
             mostraAluno();
           } else {
             mostraProfessor();

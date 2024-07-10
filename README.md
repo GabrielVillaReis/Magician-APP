@@ -64,7 +64,7 @@ Construa o projeto usando mvn install
 ```
 $mvn clean install
 ```
-## Execução
+### Execução
 ```
 $mvn javafx:run
 ```

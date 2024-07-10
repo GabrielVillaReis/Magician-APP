@@ -3,25 +3,25 @@ package com.demo.Controllers;
 import com.demo.Support.SingletonUsuario;
 import com.demo.Support.SingletonView;
 import com.demo.Models.*;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class LoginController implements Initializable {
-  public Text errormessage;
+public class LoginController {
+  public Text mensagemresposta;
   public TextField email;
   public PasswordField senha;
   public Button loginbtn;
 
-  @Override
-  public void initialize(URL url, ResourceBundle resourceBundle) {
+  public void initialize() {
     loginbtn.setOnAction(actionEvent -> onLogin());
+    if (Busca.usuario("BUSCACOMPLETA").size() <=4){
+      mensagemresposta.setText("Usuario inicial -> login: admin@com senha: 123");
+      mensagemresposta.setFill(Color.BLACK);
+    }
   }
 
   private void onLogin() {
@@ -29,7 +29,8 @@ public class LoginController implements Initializable {
     String ssenha = senha.getText();
     String[] niveltipo = Usuario.autentica(semail, ssenha);
     if (niveltipo == null) {
-      errormessage.setText("Erro: Verifique se os campos foram digitados corretamente");
+      mensagemresposta.setText("Erro: Verifique se os campos foram digitados corretamente");
+      mensagemresposta.setFill(Color.RED);
       return;
     }
 

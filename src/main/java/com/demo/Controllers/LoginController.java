@@ -13,14 +13,14 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
+public class LoginController  {
   public Text errormessage;
   public TextField email;
   public PasswordField senha;
   public Button loginbtn;
 
-  @Override
-  public void initialize(URL url, ResourceBundle resourceBundle) {
+  
+  public void initialize() {
     loginbtn.setOnAction(actionEvent -> onLogin());
   }
 
